@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_rb: {fileID: 520480382}
-  isDiscrete: 1
+  isDiscrete: 0
 --- !u!1 &536542676
 GameObject:
   m_ObjectHideFlags: 0
