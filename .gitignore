@@ -1,0 +1,4 @@
+# Ignore Unity folders
+Unity-Project/Temp
+Unity-Project/Library
+Unity-Project/Logs
