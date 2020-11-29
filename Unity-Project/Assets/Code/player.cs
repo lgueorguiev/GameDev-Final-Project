@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         BoundsCheck();
     }
 
-    // Controls Player movement, gets called in Update
+    // Controls Player movement and firing, gets called in Update
     void Movement()
     {
         if (Input.GetKey(KeyCode.W))
