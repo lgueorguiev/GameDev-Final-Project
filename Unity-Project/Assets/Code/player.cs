@@ -1,34 +1,72 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    private float thrustSpeed = 0.25f;
+    private float turnSpeed = 0.02f;
+    private Rigidbody2D _rb;
 
-    /// rigid body object for the player
-    public Rigidbody2D player_rb;
-
-    /// continuous vs. discrete movement flag
-    public bool isDiscrete = true;
+    // Start is called before the first frame update
+    void Start()
+    {
+        _rb = gameObject.GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 continuosIncRight = new Vector2(0.5f, 0f);
-        Vector2 continuosIncLeft = new Vector2(-0.5f, 0f);
+        Movement();
+        BoundsCheck();
+    }
 
-        if(isDiscrete){
-            if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)){
-                player_rb.MovePosition(Vector2.right + player_rb.position);
-            }
-            else if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)){
-                player_rb.MovePosition(Vector2.left + player_rb.position);
-            }
-        }else{
-            if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)){
-                player_rb.MovePosition(continuosIncRight + player_rb.position);
-            }
-            else if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)){
-                player_rb.MovePosition(continuosIncLeft + player_rb.position);
-            }
+    // Controls Player movement, gets called in Update
+    void Movement()
+    {
+        if (Input.GetKey(KeyCode.W))
+            _rb.AddRelativeForce(Vector2.up * thrustSpeed);
+        if (Input.GetKey(KeyCode.D))
+            _rb.AddTorque(turnSpeed * -1);
+        if (Input.GetKey(KeyCode.A))
+            _rb.AddTorque(turnSpeed);
+    }
+
+    // Keeps Player within Main Camera
+    void BoundsCheck()
+    {
+        if (transform.position.x > 10.4f)
+        {
+            Vector2 pos = transform.position;
+            pos.x = 10.4f;
+            transform.position = pos;
+
+            _rb.velocity = Vector2.zero;
+        }
+        if (transform.position.x < - 10.4f)
+        {
+            Vector2 pos = transform.position;
+            pos.x = -10.4f;
+            transform.position = pos;
+
+
+            _rb.velocity = Vector2.zero;
+        }
+        if (transform.position.y > 4.8f)
+        {
+            Vector2 pos = transform.position;
+            pos.y = 4.8f;
+            transform.position = pos;
+
+            _rb.velocity = Vector2.zero;
+        }
+        if (transform.position.y < -4.8f)
+        {
+            Vector2 pos = transform.position;
+            pos.y = -4.8f;
+            transform.position = pos;
+
+            _rb.velocity = Vector2.zero;
         }
 
     }
