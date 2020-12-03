@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Bullet), typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     private float thrustSpeed = 0.25f;
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
     {
         Movement();
         BoundsCheck();
+        if (Input.GetKey(KeyCode.Space))
+             GetComponent<Bullet>().Fire();
     }
 
     // Controls Player movement and firing, gets called in Update
@@ -29,7 +32,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             _rb.AddTorque(turnSpeed * -1);
         if (Input.GetKey(KeyCode.A))
-            _rb.AddTorque(turnSpeed);
+            _rb.AddTorque(turnSpeed);   
     }
 
     // Keeps Player within Main Camera
