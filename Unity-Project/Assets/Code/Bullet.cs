@@ -5,27 +5,19 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    public Rigidbody2D bullet_rb;
-    public float bullet_vel = 10f;
+    public float speed = 10f;
+    public Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        bullet_rb = gameObject.GetComponent<Rigidbody2D>();
+        ////rb.velocity = transform.forward * speed;
     }
 
-    // firing method
-    public void Fire() 
+    void OnTriggerEnter2D (Collider2D hitInfo)
     {
-        Rigidbody2D bulletClone = (Rigidbody2D) Instantiate(bullet_rb, transform.position, transform.rotation);
-        bulletClone.velocity = transform.forward * bullet_vel;
+        Debug.Log(hitInfo.name);
+        Destroy(gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Bullet), typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     private float thrustSpeed = 0.25f;
     private float turnSpeed = 0.02f;
     private Rigidbody2D _rb;
+    private Vector2 slide = new Vector2(0.2f, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -19,23 +19,20 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-        BoundsCheck();
-        if (Input.GetKey(KeyCode.Space))
-             GetComponent<Bullet>().Fire();
+        ///BoundsCheck();
     }
 
     // Controls Player movement and firing, gets called in Update
     void Movement()
     {
-        if (Input.GetKey(KeyCode.W))
-            _rb.AddRelativeForce(Vector2.up * thrustSpeed);
         if (Input.GetKey(KeyCode.D))
-            _rb.AddTorque(turnSpeed * -1);
+            _rb.MovePosition(_rb.position + slide);
         if (Input.GetKey(KeyCode.A))
-            _rb.AddTorque(turnSpeed);   
+            _rb.MovePosition(_rb.position - slide);  
     }
 
     // Keeps Player within Main Camera
+    /*
     void BoundsCheck()
     {
         if (transform.position.x > 10.4f)
@@ -73,4 +70,5 @@ public class Player : MonoBehaviour
         }
 
     }
+    */
 }
