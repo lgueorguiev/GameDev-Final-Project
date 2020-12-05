@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &1412021454876024204
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -199,3 +199,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet_prefab: {fileID: 1700541630122027359, guid: f0da58514e9e5ee409673cbf5c96f1b6,
     type: 3}
+  missile_prefab: {fileID: 0}
+  speed: 10
