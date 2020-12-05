@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-        ///BoundsCheck();
+        BoundsCheck();
     }
 
     // Controls Player movement and firing, gets called in Update
@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
     }
 
     // Keeps Player within Main Camera
-    /*
     void BoundsCheck()
     {
         if (transform.position.x > 10.4f)
@@ -70,5 +69,4 @@ public class Player : MonoBehaviour
         }
 
     }
-    */
 }
