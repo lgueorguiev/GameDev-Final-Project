@@ -6,7 +6,9 @@ public class Player : MonoBehaviour
 {
     private float thrustSpeed = 0.25f;
     private float turnSpeed = 0.02f;
+    private float health = 10f;
     private Rigidbody2D _rb;
+    private Vector2 slide = new Vector2(0.2f, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +23,13 @@ public class Player : MonoBehaviour
         BoundsCheck();
     }
 
-    // Controls Player movement, gets called in Update
+    // Controls Player movement and firing, gets called in Update
     void Movement()
     {
-        if (Input.GetKey(KeyCode.W))
-            _rb.AddRelativeForce(Vector2.up * thrustSpeed);
         if (Input.GetKey(KeyCode.D))
-            _rb.AddTorque(turnSpeed * -1);
+            _rb.MovePosition(_rb.position + slide);
         if (Input.GetKey(KeyCode.A))
-            _rb.AddTorque(turnSpeed);
+            _rb.MovePosition(_rb.position - slide);  
     }
 
     // Keeps Player within Main Camera
