@@ -12,7 +12,7 @@ public class TutorialMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        moveTime = Random.Range(0.4f, 1f);
+        moveTime = Random.Range(1f, 2f);
     }
 
     // Update is called once per frame
