@@ -14,7 +14,7 @@ public class EnemyBase : MonoBehaviour
     public void Hit(float damage)
     {
         health -= damage;
-        //Debug.Log(health);
+        Debug.Log(health);
     }
 
     // Update is called once per frame
@@ -23,6 +23,24 @@ public class EnemyBase : MonoBehaviour
         if (health <= 0f)
         {
             Destroy(gameObject);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
+        }
+        if (collision.gameObject.tag == "bullet")
+        {
+            //Debug.Log("hit");
+            Hit(1f);
+        }
+        if (collision.gameObject.tag == "missle")
+        {
+            //Debug.Log("hit");
+            Hit(10f);
         }
     }
 }

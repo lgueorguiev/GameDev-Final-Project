@@ -69,20 +69,6 @@ public class TutorialMovement : MonoBehaviour
         my_bullet.GetComponent<Rigidbody2D>().velocity = test* speed;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
-        }
-        if(collision.gameObject.tag == "bullet")
-        {
-            //Debug.Log("hit");
-            enemyBase.Hit(1f);
-        }
-    }
-
     void BoundsCheck()
     {
         if (transform.position.x > 10.4f)
