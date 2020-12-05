@@ -199,5 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet_prefab: {fileID: 1700541630122027359, guid: f0da58514e9e5ee409673cbf5c96f1b6,
     type: 3}
-  missile_prefab: {fileID: 0}
+  missile_prefab: {fileID: 264718150605989998, guid: b8efd12658e5f9a4399baff4677b0276,
+    type: 3}
   speed: 10

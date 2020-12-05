@@ -57,12 +57,15 @@
   <ItemGroup>
      <Compile Include="Assets\Code\BasicEnemy.cs" />
      <Compile Include="Assets\Code\BasicShoot.cs" />
+     <Compile Include="Assets\Code\Bird.cs" />
+     <Compile Include="Assets\Code\BirdSpawner.cs" />
      <Compile Include="Assets\Code\Bullet.cs" />
      <Compile Include="Assets\Code\EnemyBase.cs" />
      <Compile Include="Assets\Code\MainMenu.cs" />
      <Compile Include="Assets\Code\Player.cs" />
      <Compile Include="Assets\Code\Shooting.cs" />
      <Compile Include="Assets\Code\TutorialMovement.cs" />
+     <Compile Include="Assets\missle.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
