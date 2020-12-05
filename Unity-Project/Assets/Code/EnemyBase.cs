@@ -11,6 +11,12 @@ public class EnemyBase : MonoBehaviour
         
     }
 
+    public void Hit(float damage)
+    {
+        health -= damage;
+        //Debug.Log(health);
+    }
+
     // Update is called once per frame
     void Update()
     {
