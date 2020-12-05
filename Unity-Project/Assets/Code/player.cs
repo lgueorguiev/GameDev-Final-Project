@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     private float thrustSpeed = 0.25f;
     private float turnSpeed = 0.02f;
+    private float health = 10f;
     private Rigidbody2D _rb;
     private Vector2 slide = new Vector2(0.2f, 0);
 
