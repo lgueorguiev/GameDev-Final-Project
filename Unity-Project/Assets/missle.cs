@@ -15,9 +15,23 @@ public class missle : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D hitInfo)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         ////Debug.Log(hitInfo.name);
-        Destroy(gameObject);
+        
+        if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+        else
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                Player player_obj = collision.gameObject.GetComponent<Player>();
+                player_obj.loseHealth(damage);
+            }
+            Destroy(gameObject);
+        }
+        
     }
 }

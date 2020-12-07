@@ -9,12 +9,13 @@ public class TutorialMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveVector = new Vector2(0, 0.05f);
     private float direction;
-    private float shootTime = 4f;
+    private float shootTime = 2f;
     private bool enter = true;
     private float speed = 7f;
     private EnemyBase enemyBase;
 
     public GameObject bullet_prefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class TutorialMovement : MonoBehaviour
         moveTime = Random.Range(1f, 2f);
         direction = Random.Range(-1f, 1f);
         enemyBase = GetComponent<EnemyBase>();
-
+        
     }
 
     // Update is called once per frame

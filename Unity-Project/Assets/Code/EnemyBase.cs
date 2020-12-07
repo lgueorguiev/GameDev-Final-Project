@@ -5,10 +5,13 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public float health = 10f;
+    public AudioSource audioSource;
+
+    public AudioClip explosion;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Hit(float damage)
@@ -22,6 +25,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (health <= 0f)
         {
+            audioSource.PlayOneShot(explosion, 0.2f);
             Destroy(gameObject);
         }
     }

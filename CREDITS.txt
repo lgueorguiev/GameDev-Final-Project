@@ -1,0 +1,4 @@
+1) Plane Sprite Sheet: http://unluckystudio.com/free-game-artassets-for-games-12-top-down-planes-sprites-pack/
+2) Fireball Sprite Sheet: EVPO Games from Unity Asset Store "2D Pixel Spaceship - Two Small Ships
+3) Final Boss Audio: https://www.free-stock-music.com/juhani-junkala-epic-boss-battle.html
+4) Bird Sprite: https://www.nicepng.com/ourpic/u2w7u2w7i1r5u2q8_eagle-atlas-top-down-bird-sprite/
