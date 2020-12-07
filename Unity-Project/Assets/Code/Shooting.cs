@@ -8,10 +8,19 @@ public class Shooting : MonoBehaviour
     public GameObject bullet_prefab;
     public GameObject missile_prefab;
     public float speed = 10f;
+    public AudioSource audioSource;
 
+    public AudioClip bullet_sound;
+    public AudioClip missle_sound;
     // firing method
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Fire()
     {
+        audioSource.PlayOneShot(bullet_sound, 0.2f);
         Vector2 test = new Vector2(0f, 1f);
         GameObject my_bullet = Instantiate(bullet_prefab, transform.TransformPoint(new Vector3(0, 1.25f, 0)), transform.rotation);
         my_bullet.GetComponent<Rigidbody2D>().velocity = test * speed;
@@ -19,6 +28,7 @@ public class Shooting : MonoBehaviour
 
     void FireMissile()
     {
+        audioSource.PlayOneShot(missle_sound, 0.4f);
         Vector2 test = new Vector2(0f, 1f);
         GameObject my_missile = Instantiate(missile_prefab, transform.TransformPoint(new Vector3(0, 1.25f, 0)), transform.rotation);
         my_missile.GetComponent<Rigidbody2D>().velocity = test * speed;

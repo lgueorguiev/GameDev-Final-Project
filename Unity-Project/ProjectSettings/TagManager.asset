@@ -7,6 +7,10 @@ TagManager:
   - Enemy
   - bullet
   - missle
+  - boundary
+  - bird
+  - EnemyProj
+  - DeathMenu
   layers:
   - Default
   - TransparentFX
